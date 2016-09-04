@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ExerciocioTres;
 
 /**
@@ -36,21 +31,21 @@ public class CondicionadorDeAr {
         ligado = false;
     }
     
-    public boolean aumentaTemperatura(){
-        if(termostato.getTemperatura() >= 28 || ligado == false){
+    public boolean aumentaTemperatura(int quantidade){
+        if(termostato.getTemperatura() >= 28 || ligado == false || quantidade >= 28){
             System.out.println("Não foi possivel aumentar a temperatura");
             return false;
         }
-        termostato.setTemperatura(termostato.getTemperatura()-1);
+        termostato.setTemperatura(quantidade);
         return true;
     }
     
-    public boolean diminuiTemperatura(){
-        if(termostato.getTemperatura() <= 15 || ligado == false){
+    public boolean diminuiTemperatura(int quantidade){
+        if(termostato.getTemperatura() <= 15 || ligado == false || quantidade <= 15){
             System.out.println("Não foi possivel diminuir a temperatura");
             return false;
         }
-        termostato.setTemperatura(termostato.getTemperatura()+1);
+        termostato.setTemperatura(quantidade);
         return true;
     }
 }

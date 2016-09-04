@@ -26,7 +26,7 @@ public class Dna {
             System.out.print("Digite a base[" + i + "]: ");
             sequencia[i] = ler.nextLine().charAt(0); //lê a primeira letra digitada
         }
-        ler.close();
+        //ler.close();
     }
 
     public char[] getSequencia() {
