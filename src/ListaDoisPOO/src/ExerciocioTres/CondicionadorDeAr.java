@@ -31,21 +31,21 @@ public class CondicionadorDeAr {
         ligado = false;
     }
     
-    public boolean aumentaTemperatura(int quantidade){
-        if(termostato.getTemperatura() >= 28 || ligado == false || quantidade >= 28){
-            System.out.println("Não foi possivel aumentar a temperatura");
+    public boolean aumentaTemperatura(){
+        if(termostato.getTemperatura() >= 28 || ligado == false){
+            System.out.println("Não foi possivel aumentar a temperatura ou está desligado");
             return false;
         }
-        termostato.setTemperatura(quantidade);
+        termostato.setTemperatura(termostato.getTemperatura()+1);
         return true;
     }
     
-    public boolean diminuiTemperatura(int quantidade){
-        if(termostato.getTemperatura() <= 15 || ligado == false || quantidade <= 15){
-            System.out.println("Não foi possivel diminuir a temperatura");
+    public boolean diminuiTemperatura(){
+        if(termostato.getTemperatura() <= 15 || ligado == false){
+            System.out.println("Não foi possivel diminuir a temperatura ou está desligado");
             return false;
         }
-        termostato.setTemperatura(quantidade);
+        termostato.setTemperatura(termostato.getTemperatura()-1);
         return true;
     }
 }

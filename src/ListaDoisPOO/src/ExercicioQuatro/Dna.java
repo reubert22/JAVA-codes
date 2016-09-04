@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ExercicioQuatro;
 
 import java.util.Scanner;
@@ -17,6 +12,9 @@ public class Dna {
 
     public Dna() {
         lerDna();
+    }
+    public Dna(char [] sequencia){
+        this.sequencia = sequencia;
     }
 
     public void lerDna() {
