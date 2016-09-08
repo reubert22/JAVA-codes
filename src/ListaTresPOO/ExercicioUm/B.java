@@ -9,8 +9,9 @@ public class B {
 	}
 }
 /**
- * Respostas:
- * a) 
- * b) Como podemos ver somente as chamadas da linha 7 e 8 (obj.y, obj.z) respectivamente, pois a propriedade y é publica, ficando visivel.
- * 	  z também pois ela é uma propriedade publica, por padrão
+ * Resposta:
+ * b) Como podemos ver somente as chamadas da linha 7 e 8 (obj.y, obj.z) respectivamente são válidas,
+ *    pois a propriedade y é publica, ficando visivel e z também pois ela pertence ao mesmo pacote e não tem estado de visibilidade.
+ *    Não é válido acessar X pois ele é privadao, então só poderemos acessa-lo quando tivermos getters and setters (métodos de acesso)
+ * 
  */
