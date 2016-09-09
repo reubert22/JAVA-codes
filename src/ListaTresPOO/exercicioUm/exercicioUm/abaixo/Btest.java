@@ -1,6 +1,6 @@
-package ExercicioUm.abaixo;
+package exercicioUm.abaixo;
 
-import ExercicioUm.A;
+import exercicioUm.acima.A;
 
 /**
  *

@@ -1,4 +1,4 @@
-package ExercicioUm;
+package exercicioUm.acima;
 
 public class A {
 	private int x;
