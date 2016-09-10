@@ -39,9 +39,10 @@ public class Texto {
 	public boolean palindrome(String palavra){
 		int i = 0;
 		int j = palavra.length() - 1;
+		String palavraMinuscula = palavra.toLowerCase();
 		boolean condicao = false;
 		for(;i < palavra.length();i++,j--){
-			if(palavra.charAt(i) == palavra.charAt(j)){
+			if(palavraMinuscula.charAt(i) == palavraMinuscula.charAt(j)){
 				condicao = true;
 			}else{
 				break;
