@@ -29,4 +29,5 @@ public class Disciplina {
 	public String toString(){
 		return nome+"| Pratica: "+pratica;
 	}
+	
 }

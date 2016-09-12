@@ -22,8 +22,8 @@ public class Texto {
 			   "\nEu: " +verbo.substring(0, verbo.length()-infinitivo)+"o"+
 			   "\nTu: "  +verbo.substring(0, verbo.length()-infinitivo)+"as"+
 			   "\nEle: " +verbo.substring(0, verbo.length()-infinitivo)+"a"+
-			   "\nNós: " +verbo.substring(0, verbo.length()-infinitivo+1)+"mos"+
-			   "\nVós: " +verbo.substring(0, verbo.length()-infinitivo)+"ais"+
+			   "\nNos: " +verbo.substring(0, verbo.length()-infinitivo+1)+"mos"+
+			   "\nVos: " +verbo.substring(0, verbo.length()-infinitivo)+"ais"+
 			   "\nEles: "+verbo.substring(0, verbo.length()-infinitivo)+"am";
 	}
 	
@@ -50,6 +50,5 @@ public class Texto {
 		}
 		return condicao;
 	}
-	
 	
 }
