@@ -13,7 +13,7 @@ public class Jogo {
 		tabuleiro.exibirTabuleiro();
 		opcao = sorteiaJogador();
 		
-		while(vencedor == false){
+		//while(vencedor == false){
 			if(opcao == 0){
 				//Comeca por computador;
 				System.out.println("1");
@@ -25,7 +25,7 @@ public class Jogo {
 			}
 			tabuleiro.exibirTabuleiro();
 			alternarJogador(opcao);
-		}
+		//}
 		
 		
 	}

@@ -31,6 +31,7 @@ public class JogadorHumano {
 	}
 
 	public Posicao escolherJogada(TabuleiroJogoVelha tabuleiro) {
+		Scanner lerJogadas = new Scanner(System.in);
 		boolean cond = false;
 		int linha = 0;
 		int coluna = 0;
@@ -38,7 +39,7 @@ public class JogadorHumano {
 		Posicao posicao;
 		
 		while (cond == false) {
-			Scanner lerJogadas = new Scanner(System.in);
+			
 			System.out.println("Escolha a linha: ");
 			linha = lerJogadas.nextInt();
 			System.out.println("Escolha a coluna: ");
@@ -47,9 +48,9 @@ public class JogadorHumano {
 					&& tab[linha][coluna] == ' ') {
 				cond = true;
 			}
-			lerJogadas.close();
+			
 		}
-		
+		lerJogadas.close();
 		posicao = new Posicao(linha, coluna);
 		adicionarJogadas(posicao);
 		tabuleiro.setTabuleiro(linha, coluna, simbolo);
