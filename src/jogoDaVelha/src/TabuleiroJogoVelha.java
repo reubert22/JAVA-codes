@@ -15,14 +15,16 @@ public class TabuleiroJogoVelha {
 	}
 
 	public void exibirTabuleiro() {
-		System.out.print("-----------------------------");
+		System.out.println(".::JOGO DA VELHA::.");
+		System.out.println("   0   1   2");
 		for (int linha = 0; linha < 3; linha++) {
+			System.out.print(linha+" ");
 			for (int coluna = 0; coluna < 3; coluna++) {
-				System.out.print(tabuleiro[linha][coluna]+" ");
+				System.out.print("["+tabuleiro[linha][coluna]+"] ");
 			}
 			System.out.println( );
 		}
-		System.out.print("-----------------------------");
+		System.out.println("________________________");
 	}
 
 	public boolean checarLinhas(char a) {
@@ -97,7 +99,7 @@ public class TabuleiroJogoVelha {
 
 	public boolean checaCasa(int i, int j) {
 		boolean verif = false;
-		if (tabuleiro[i][j] == ' ') {
+		if (tabuleiro[i][j] == '%') {
 			verif = true;
 		}
 		return verif;

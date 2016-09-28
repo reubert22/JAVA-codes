@@ -42,14 +42,14 @@ public class JogadorComputador {
 			linha = rand.nextInt(3);
 			coluna = rand.nextInt(3);
 			if(coluna >= 0 && linha >= 0 && coluna <= 2 && linha <= 2 
-					&& tab[linha][coluna] == ' '){
+					&& tab[linha][coluna] == '%'){
 				cond = true;
 			}
 		}
 		
+		tabuleiro.marcarJogada(linha, coluna, this.simbolo);
 		posicao = new Posicao(linha,coluna);
 		adicionarJogada(posicao);
-		tabuleiro.setTabuleiro(linha, coluna, simbolo);
 		
 		return posicao;
 	}

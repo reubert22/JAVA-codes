@@ -2,47 +2,109 @@ import java.util.Random;
 
 public class Jogo {
 	public static void main(String[] args) {
+		
 		TabuleiroJogoVelha tabuleiro = new TabuleiroJogoVelha();
-		/*The players have an default simbol*/
+		/* The players have an default symbol */
 		JogadorHumano jogadorHumano = new JogadorHumano('X');
 		JogadorComputador jogadorComputador = new JogadorComputador('O');
+
+		boolean jogadorHumanoVenceu = false;
+		boolean jogadorComputadorVenceu = false;
+		boolean fimDoJogo = false;
 		
-		boolean vencedor = false;
-		int opcao = 0;
-		
+
+		configuraTabuleiro(tabuleiro);
 		tabuleiro.exibirTabuleiro();
-		opcao = sorteiaJogador();
+		int opcao = sorteiaJogador();
 		
-		//while(vencedor == false){
+		
+		while (fimDoJogo == false) {
+
+			/*
+			 * System.out.print(".::Computador::.");
+			 * jogadorComputador.escolherJogada(tabuleiro);
+			 * if(checaVencedorComputador(tabuleiro)){
+			 * System.out.println("Jogador computador venceu!");
+			 * jogadorComputadorVenceu = true; fimDoJogo = true; break; }
+			 */
+			/*
+			 * System.out.println(".::Humano::.");
+			 * jogadorHumano.escolherJogada(tabuleiro); if
+			 * (checaVencedorHumano(tabuleiro)) {
+			 * System.out.println("Jogador humano venceu!"); jogadorHumanoVenceu
+			 * = true; fimDoJogo = true; break; }
+			 */
+			alternarJogador(opcao);
 			if(opcao == 0){
-				//Comeca por computador;
-				System.out.println("1");
+				System.out.println(".::Computador::.");
 				jogadorComputador.escolherJogada(tabuleiro);
+			}else if(opcao == 1){
+				System.out.println(".::Humano::.");
+				jogadorHumano.escolherJogada(tabuleiro);
 			}else{
-				//Comeca por humano;
-				System.out.println("2");
-					jogadorHumano.escolherJogada(tabuleiro);
+				System.out.println("Opção de jogador inválida!");
+			}
+			
+			if(checaVencedorComputador(tabuleiro) == true){
+				System.out.println("Computador venceu o jogo.");
+				fimDoJogo = true;
+				break;
+			}else if(checaVencedorHumano(tabuleiro) == true){
+				System.out.println("Humano venceu o jogo.");
+				fimDoJogo = true;
+				break;
+			}else{
+				System.out.println("acontecendo...");
 			}
 			tabuleiro.exibirTabuleiro();
-			alternarJogador(opcao);
-		//}
-		
+			
+		}
 		
 	}
+
+	public static boolean checaVencedorComputador(TabuleiroJogoVelha tabuleiro) {
+		char simbolo = 'O';
+		boolean verif = false;
+		if (tabuleiro.checaColuna(simbolo) || tabuleiro.checarLinhas(simbolo)
+				|| tabuleiro.checaDiagonalPrincipal(simbolo)
+				|| tabuleiro.checaDiagonalSecundaria(simbolo)) {
+			verif = true;
+		}
+		return verif;
+	}
+
+	public static boolean checaVencedorHumano(TabuleiroJogoVelha tabuleiro) {
+		char simbolo = 'X';
+		boolean verif = false;
+		if (tabuleiro.checaColuna(simbolo) || tabuleiro.checarLinhas(simbolo)
+				|| tabuleiro.checaDiagonalPrincipal(simbolo)
+				|| tabuleiro.checaDiagonalSecundaria(simbolo)) {
+			verif = true;
+		}
+		return verif;
+	}
+
+	public static void configuraTabuleiro(TabuleiroJogoVelha tabuleiro) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				tabuleiro.setTabuleiro(i, j, '%');
+			}
+		}
+	}
 	
-	public static int alternarJogador(int x){
-		if(x == 0){
+	public static int alternarJogador(int x) {
+		if (x == 0) {
 			x = 1;
-		}else{
+		} else {
 			x = 0;
 		}
 		return x;
 	}
 	
-	public static int sorteiaJogador(){
+	public static int sorteiaJogador() {
 		Random rand = new Random();
 		int num = rand.nextInt(2);
-		
+
 		return num;
 	}
 	
