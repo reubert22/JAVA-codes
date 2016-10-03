@@ -1,4 +1,3 @@
-
 public class TabuleiroJogoVelha {
 	private char[][] tabuleiro = new char[3][3];
 
@@ -15,86 +14,63 @@ public class TabuleiroJogoVelha {
 	}
 
 	public void exibirTabuleiro() {
-		System.out.println(".::JOGO DA VELHA::.");
 		System.out.println("   0   1   2");
 		for (int linha = 0; linha < 3; linha++) {
-			System.out.print(linha+" ");
+			System.out.print(linha + " ");
 			for (int coluna = 0; coluna < 3; coluna++) {
-				System.out.print("["+tabuleiro[linha][coluna]+"] ");
+				System.out.print("[" + tabuleiro[linha][coluna] + "] ");
 			}
-			System.out.println( );
+			System.out.println();
 		}
 		System.out.println("________________________");
 	}
 
 	public boolean checarLinhas(char a) {
-		boolean verif = false;
-		int contador = 0;
 		for (int linha = 0; linha < 3; linha++) {
+			int contador = 0;
 			for (int coluna = 0; coluna < 3; coluna++) {
 				if (tabuleiro[linha][coluna] == a) {
 					contador++;
 				}
+				if (contador == 3) {
+					return true;
+				}
 			}
 		}
-		if(contador == 3){
-			verif = true;
-		}
-		return verif;
+		return false;
 	}
 
 	public boolean checaColuna(char a) {
-		boolean verif = false;
-		int contador = 0;
-		for(int coluna = 0; coluna < 3; coluna++){
-			for(int linha = 0; linha < 3; linha++){
-				if(tabuleiro[linha][coluna] == a){
-					contador++;
-				}
-			}
-		}
-		if(contador == 3){
-			verif = true;
-		}
-		return verif;
-	}
-
-	public boolean checaDiagonalPrincipal(char a) {
-		boolean verif = false;
-		int contador = 0;
-		for (int i = 0; i < 3; i++) {
-			if (tabuleiro[i][i] == a) {
-				contador++;
-			}
-		}
-		if (contador == 3) {
-			verif = true;
-		}
-		return verif;
-	}
-
-	public boolean checaDiagonalSecundaria(char a) {
-		boolean verif = false;
-		int contador = 0;
-		for (int linha = 0; linha < 3; linha++) {
-			for (int coluna = 2; coluna >= 0; coluna--) {
+		for (int coluna = 0; coluna < 3; coluna++) {
+			int contador = 0;
+			for (int linha = 0; linha < 3; linha++) {
 				if (tabuleiro[linha][coluna] == a) {
 					contador++;
 				}
+				if (contador == 3) {
+					return true;
+				}
 			}
 		}
-		if (contador == 3) {
-			verif = true;
-		}
-		return verif;
+		return false;
 	}
 
-	public boolean checarDiagonal(char a) {
-		boolean verif = false;
-		if (checaDiagonalPrincipal(a) == true || checaDiagonalSecundaria(a) == true) {
-			verif = true;
+	public boolean checaDiagonalPrincipal(char a) {
+		for (int i = 0; i < 3; i++) {
+			if (tabuleiro[i][i] != a) {
+				return false;
+			}
 		}
-		return verif;
+		return true;
+	}
+
+	public boolean checaDiagonalSecundaria(char a) {
+		for (int linha = 0, coluna = 2; linha < 3; linha++, coluna--) {
+			if (tabuleiro[linha][coluna] != a) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public boolean checaCasa(int i, int j) {
@@ -106,11 +82,26 @@ public class TabuleiroJogoVelha {
 	}
 
 	public void marcarJogada(int i, int j, char a) {
-		if (checaCasa(i,j) == true) {
+		if (checaCasa(i, j) == true) {
 			tabuleiro[i][j] = a;
 		} else {
 			System.out.println("A posição já está preenchida! ");
 		}
+	}
+
+	public boolean checaJogadas() {
+		int contador = 0;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (tabuleiro[i][j] == '%') {
+					contador++;
+				}
+				if (contador >= 1) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public char[][] getTabuleiro() {

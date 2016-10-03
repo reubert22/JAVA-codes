@@ -37,28 +37,26 @@ public class JogadorHumano {
 		int coluna = 0;
 		char tab[][] = tabuleiro.getTabuleiro();
 		Posicao posicao;
-		
-		while (cond != true) {
-			
+
+		while (cond == false) {
+
 			System.out.print("Escolha a linha: ");
 			linha = lerJogadas.nextInt();
 			System.out.print("Escolha a coluna: ");
 			coluna = lerJogadas.nextInt();
-			
+
 			if (coluna >= 0 && linha >= 0 && coluna <= 2 && linha <= 2
 					&& tab[linha][coluna] == '%') {
 				cond = true;
 			}
 		}
-		//lerJogadas.close();
-		
+		// lerJogadas.close();
+
 		tabuleiro.marcarJogada(linha, coluna, this.simbolo);
 		posicao = new Posicao(linha, coluna);
 		adicionarJogadas(posicao);
-		
-		
 		return posicao;
-		
+
 	}
-	
+
 }
