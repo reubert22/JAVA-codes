@@ -1,5 +1,4 @@
 package navio;
 
-public class Encouracado {
-
+public class Encouracado extends Embarcacao {
 }

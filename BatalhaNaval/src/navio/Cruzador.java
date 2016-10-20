@@ -1,5 +1,4 @@
 package navio;
 
-public class Cruzador {
-
+public class Cruzador extends Embarcacao {
 }

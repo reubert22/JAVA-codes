@@ -1,5 +1,4 @@
 package navio;
 
-public class Hidroaviao {
-
+public class Hidroaviao extends Embarcacao {
 }

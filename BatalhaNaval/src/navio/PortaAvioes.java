@@ -1,5 +1,4 @@
 package navio;
 
-public class PortaAvioes {
-
+public class PortaAvioes extends Embarcacao {
 }

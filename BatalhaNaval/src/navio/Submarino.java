@@ -1,5 +1,5 @@
 package navio;
 
-public class Submarino {
-
+public class Submarino extends Embarcacao {
+	
 }
