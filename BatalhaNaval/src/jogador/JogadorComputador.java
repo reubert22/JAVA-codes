@@ -2,6 +2,12 @@ package jogador;
 
 import java.util.Random;
 
+import navio.Cruzador;
+import navio.Encouracado;
+import navio.Hidroaviao;
+import navio.PortaAvioes;
+import navio.Submarino;
+
 import tabuleiro.*;
 import utilidade.Utilidade;
 
@@ -28,22 +34,35 @@ public class JogadorComputador extends Jogador {
 		criarEmbarcacao(1,5);
 	}
 	
-	public int gerarPrimeiraLinha(){
+	public Posicao gerarPosicao(){
 		Random random = Utilidade.obterRandom();
 		int linha = random.nextInt(10);
-		return linha;
-	}
-	
-	public int gerarPrimeiraColuna(){
-		Random random = Utilidade.obterRandom();
 		int coluna = random.nextInt(10);
-		return coluna;
+		return new Posicao(linha, coluna);
 	}
 	
 	public void criarEmbarcacao(int qntdEmbarcacoes, int tamEmbarcacao){
-		int pontoLinha = gerarPrimeiraLinha();
-		int pontoColuna = gerarPrimeiraColuna();
-		//verificação das casas e for para preencher os lugares
+		for(int cont = 0; cont < qntdEmbarcacoes; cont++){
+			Posicao posicao = new Posicao();
+			
+			do {
+				posicao = gerarPosicao();
+			} while(!tabuleiro.posicaoValida(posicao));
+			
+			if(tabuleiro.checaPosicoesLaterais(posicao, tamEmbarcacao)){
+				if(tamEmbarcacao == 1){
+					tabuleiro.adicionarPeca(new Submarino(), posicao);
+				}else if(tamEmbarcacao == 2){
+					tabuleiro.adicionarPeca(new Hidroaviao(), posicao);
+				}else if(tamEmbarcacao == 3){
+					tabuleiro.adicionarPeca(new Cruzador(), posicao);
+				}else if(tamEmbarcacao == 4){
+					tabuleiro.adicionarPeca(new Encouracado(), posicao);
+				}else if(tamEmbarcacao == 5){
+					tabuleiro.adicionarPeca(new PortaAvioes(), posicao);
+				}
+			}				
+		}	
 		
 	}
 	

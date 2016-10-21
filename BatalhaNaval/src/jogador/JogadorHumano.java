@@ -33,11 +33,14 @@ public class JogadorHumano extends Jogador {
 		
 		for(int cont = 0; cont < qntdEmbarcacoes; cont++){
 			Posicao posicao = new Posicao();
-			System.out.print("> Informe a linha e coluna: ");
-			posicao.linha = scanner.nextInt();
-			posicao.coluna = scanner.nextInt();
 			
-			if(tabuleiro.posicaoValida(posicao) && tabuleiro.checaPosicoesLaterais(posicao, tamEmbarcacao)){
+			do {
+				System.out.print("> Informe a linha e coluna: ");
+				posicao.linha = scanner.nextInt();
+				posicao.coluna = scanner.nextInt();
+			} while(!tabuleiro.posicaoValida(posicao));
+			
+			if(tabuleiro.checaPosicoesLaterais(posicao, tamEmbarcacao)){
 				if(tamEmbarcacao == 1){
 					tabuleiro.adicionarPeca(new Submarino(), posicao);
 				}else if(tamEmbarcacao == 2){
@@ -49,23 +52,7 @@ public class JogadorHumano extends Jogador {
 				}else if(tamEmbarcacao == 5){
 					tabuleiro.adicionarPeca(new PortaAvioes(), posicao);
 				}
-			}else{
-				if(cont == 0){
-					cont = 0;
-				}else if(cont == 1){
-					cont = 1;
-				}else if(cont == 2){
-					cont = 2;
-				}
-			}
-			/*  do {
-			*		System.out.print("> Informe a linha e coluna: ");
-			*		posicao.linha = scanner.nextInt();
-			*		posicao.coluna = scanner.nextInt();
-			*	} while(!tabuleiro.posicaoValida(posicao));
-			*	 
-			*	tabuleiro.adicionarPeca(new Submarino(), posicao);
-			*/	
+			}				
 		}
 	}
 	

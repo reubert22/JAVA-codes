@@ -45,7 +45,7 @@ public class Tabuleiro {
 	
 	public boolean checaPosicoesLaterais(Posicao posicao, int tamEmbarcacao){
 		return tabuleiro[posicao.linha][posicao.coluna - 1] == SIMBOLO_AGUA && 
-			   tabuleiro[posicao.linha][posicao.coluna + (tamEmbarcacao - 1) + 1] == SIMBOLO_AGUA;
+			   tabuleiro[posicao.linha][posicao.coluna + tamEmbarcacao] == SIMBOLO_AGUA;
 	}
 	
 	public boolean existePosicaoDisponivel(){

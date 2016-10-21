@@ -14,7 +14,7 @@ public class BatalhaNaval {
 		computador.organizarEmbarcacoes();
 		
 		do {
-			humano.pedirJogada();
+			humano.pedirJogada();			
 			computador.pedirJogada();
 			
 			humano.mostrarTabuleiro();
@@ -22,7 +22,7 @@ public class BatalhaNaval {
 		} while(!humano.vencedor() && !computador.vencedor());
 		
 		if(humano.vencedor()){
-			System.out.println("Você venceu!");
+			System.out.println("Vocï¿½ venceu!");
 		} else if(computador.vencedor()){
 			System.out.println("O computador venceu!");
 		}
