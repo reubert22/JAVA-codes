@@ -43,6 +43,11 @@ public class Tabuleiro {
 		return linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10;
 	}
 	
+	public boolean checaPosicoesLaterais(Posicao posicao, int tamEmbarcacao){
+		return tabuleiro[posicao.linha][posicao.coluna - 1] == SIMBOLO_AGUA && 
+			   tabuleiro[posicao.linha][posicao.coluna + (tamEmbarcacao - 1) + 1] == SIMBOLO_AGUA;
+	}
+	
 	public boolean existePosicaoDisponivel(){
 		for (int linha = 0; linha < NUM_LINHAS; linha++) {
 			for (int coluna = 0; coluna < NUM_COLUNAS; coluna++) {
