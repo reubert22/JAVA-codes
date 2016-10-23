@@ -1,7 +1,7 @@
 package navio;
 
 public class FabricaCruzador implements Fabrica {
-	public Embarcacao criarEmbarcacao(){
+	public Cruzador criarEmbarcacao(){
 		return new Cruzador();
 	}
 }

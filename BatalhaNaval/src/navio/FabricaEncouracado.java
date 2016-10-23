@@ -1,7 +1,7 @@
 package navio;
 
 public class FabricaEncouracado implements Fabrica {
-	public Embarcacao criarEmbarcacao(){
+	public Encouracado criarEmbarcacao(){
 		return new Encouracado();
 	}
 }
