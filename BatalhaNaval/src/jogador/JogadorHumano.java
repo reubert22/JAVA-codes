@@ -31,6 +31,7 @@ public final class JogadorHumano extends Jogador {
 	private void criarEmbarcacao(Fabrica fabrica, int quantidade) {
 		Scanner scanner = Utilidade.obterScanner();
 		
+		System.out.println("Voce vai escolher qual linha e coluna quer a embarcação acima.");
 		for(int cont = 0; cont < quantidade; cont++){
 			Posicao posicao = new Posicao();
 			Embarcacao embarcacao = fabrica.criarEmbarcacao();
@@ -46,7 +47,17 @@ public final class JogadorHumano extends Jogador {
 	}
 	
 	public void pedirJogada(){
+		Scanner scanner = Utilidade.obterScanner();
+		Posicao posicao = new Posicao();
+		Tabuleiro tabuleiroAdversario = adversario.getTabuleiro();
 		
+		do{
+			System.out.println("> Informe a linha e coluna: ");
+			posicao.linha  = scanner.nextInt();
+			posicao.coluna = scanner.nextInt();
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao));
+		
+		ultimaPosicaoJogada = posicao;
 	}
 	
 }

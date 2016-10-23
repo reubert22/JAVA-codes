@@ -45,6 +45,9 @@ public class Tabuleiro {
 	}
 	
 	public boolean espacoEsquerdoEstaVazio(Posicao posicao){
+		if(posicao.coluna == 0){
+			return true;
+		}
 		return tabuleiro[posicao.linha][posicao.coluna - 1] == SIMBOLO_AGUA;
 	}
 	

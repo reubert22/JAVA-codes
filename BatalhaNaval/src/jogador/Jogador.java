@@ -21,21 +21,31 @@ public abstract class Jogador {
 	public abstract void pedirJogada();
 	
 	public void mostrarTabuleiro(){
+		System.out.print("    ");
+		for(int i=0; i<10; i++){
+			System.out.print("    ["+i+"]");
+		}
+		System.out.println();
 		for(int linha = 0; linha < 10; linha++){
+			System.out.print("["+linha+"]");
 			for(int coluna = 0; coluna < 10; coluna++){
-				System.out.print(tabuleiro.getTabuleiro()[linha][coluna]);
+				System.out.print("      "+tabuleiro.getTabuleiro()[linha][coluna]);
 			}
-			
 			System.out.println();
 		}
 	}
 	
 	public void atacarAdversario(){
-		
+		if(tabuleiro.getTabuleiro()[ultimaPosicaoJogada.linha][ultimaPosicaoJogada.coluna] != 'A'){
+			System.out.println("Você acertou parte de uma embarcação. ");
+			pontos++;
+			receberAtaque(ultimaPosicaoJogada);
+		}
+		System.out.println("Acertou água. ");
 	}
 	
-	public void receberAtaque(){
-		
+	public void receberAtaque(Posicao posicao){
+		tabuleiro.getTabuleiro()[posicao.linha][posicao.coluna] = 'x';
 	}
 	
 	public boolean vencedor(){
