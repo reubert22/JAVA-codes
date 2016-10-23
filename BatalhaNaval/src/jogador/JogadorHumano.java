@@ -46,7 +46,7 @@ public final class JogadorHumano extends Jogador {
 	}
 	
 	public void pedirJogada(){
-		// Lembrete: aqui e onde vamos usar a prop. "adversario"
+		
 	}
 	
 }

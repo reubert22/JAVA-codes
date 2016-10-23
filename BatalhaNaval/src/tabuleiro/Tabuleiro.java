@@ -74,4 +74,8 @@ public class Tabuleiro {
 		}
 		return false;
 	}
+	
+	public char[][] getTabuleiro(){
+		return tabuleiro;
+	}
 }

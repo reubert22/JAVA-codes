@@ -14,11 +14,13 @@ public class BatalhaNaval {
 		computador.organizarEmbarcacoes();
 		
 		do {
-			humano.pedirJogada();			
-			computador.pedirJogada();
-			
 			humano.mostrarTabuleiro();
+			humano.pedirJogada();
+			humano.atacarAdversario();
+			
 			computador.mostrarTabuleiro();
+			computador.pedirJogada();
+			computador.atacarAdversario();
 		} while(!humano.vencedor() && !computador.vencedor());
 		
 		if(humano.vencedor()){

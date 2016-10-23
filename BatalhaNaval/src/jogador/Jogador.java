@@ -15,7 +15,19 @@ public abstract class Jogador {
 	
 	public abstract void pedirJogada();
 	
-	public void mostrarTabuleiro(){}
+	public void mostrarTabuleiro(){
+		for(int linha = 0; linha < 10; linha++){
+			for(int coluna = 0; coluna < 10; coluna++){
+				System.out.print(tabuleiro.getTabuleiro()[linha][coluna]);
+			}
+			
+			System.out.println();
+		}
+	}
+	
+	public void atacarAdversario(){
+		// Falta implementar
+	}
 	
 	public boolean vencedor(){
 		return vencedor;
