@@ -22,7 +22,7 @@ public class BatalhaNaval {
 		} while(!humano.vencedor() && !computador.vencedor());
 		
 		if(humano.vencedor()){
-			System.out.println("Voc� venceu!");
+			System.out.println("Voce venceu!");
 		} else if(computador.vencedor()){
 			System.out.println("O computador venceu!");
 		}

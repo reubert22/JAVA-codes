@@ -21,20 +21,21 @@ public class Tabuleiro {
 		}
 	}
 	
-	public boolean adicionarPeca(Embarcacao embarcacao, Posicao posicao){
-		if(posicaoEstaDisponivel(posicao)){
-			tabuleiro[posicao.linha][posicao.coluna] = embarcacao.getSimbolo();
-			return true;
+	public boolean podeInserirEmbarcacao(Embarcacao embarcacao, Posicao posicao){
+		return 	posicaoEstaDentroDoLimite(posicao) && 
+				cabeEmbarcacao(embarcacao, posicao) && 
+				espacoEsquerdoEstaVazio(posicao) && 
+				espacoDireitoEstaVazio(embarcacao, posicao);
+	}
+	
+	public boolean cabeEmbarcacao(Embarcacao embarcacao, Posicao posicao){
+		for(int coluna = posicao.coluna; coluna < (posicao.coluna + embarcacao.getTamanho()); coluna++){
+			if(tabuleiro[posicao.linha][posicao.coluna] != SIMBOLO_AGUA){
+				return false;
+			}
 		}
-		return false;
-	}
-	
-	public boolean posicaoValida(Posicao posicao){
-		return posicaoEstaDisponivel(posicao) && posicaoEstaDentroDoLimite(posicao);
-	}
-	
-	public boolean posicaoEstaDisponivel(Posicao posicao){
-		return tabuleiro[posicao.linha][posicao.coluna] == SIMBOLO_AGUA;
+		
+		return true;
 	}
 	
 	public boolean posicaoEstaDentroDoLimite(Posicao posicao){
@@ -43,9 +44,24 @@ public class Tabuleiro {
 		return linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10;
 	}
 	
-	public boolean checaPosicoesLaterais(Posicao posicao, int tamEmbarcacao){
-		return tabuleiro[posicao.linha][posicao.coluna - 1] == SIMBOLO_AGUA && 
-			   tabuleiro[posicao.linha][posicao.coluna + tamEmbarcacao] == SIMBOLO_AGUA;
+	public boolean espacoEsquerdoEstaVazio(Posicao posicao){
+		return tabuleiro[posicao.linha][posicao.coluna - 1] == SIMBOLO_AGUA;
+	}
+	
+	public boolean espacoDireitoEstaVazio(Embarcacao embarcacao, Posicao posicao){
+		return tabuleiro[posicao.linha][posicao.coluna + embarcacao.getTamanho()] == SIMBOLO_AGUA;
+	}
+	
+	public void adicionarEmbarcacao(Embarcacao embarcacao, Posicao posicao){
+		if(podeInserirEmbarcacao(embarcacao, posicao)){
+			for(int coluna = posicao.coluna; coluna < (posicao.coluna + embarcacao.getTamanho()); coluna++){
+				tabuleiro[posicao.linha][posicao.coluna] = embarcacao.getSimbolo();
+			}
+		}
+	}
+	
+	public boolean posicaoEstaDisponivel(Posicao posicao){
+		return tabuleiro[posicao.linha][posicao.coluna] == SIMBOLO_AGUA;
 	}
 	
 	public boolean existePosicaoDisponivel(){
