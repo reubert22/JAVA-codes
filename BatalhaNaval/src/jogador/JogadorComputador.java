@@ -1,6 +1,8 @@
 package jogador;
 
 import java.util.Random;
+import java.util.Scanner;
+
 import navio.*;
 import tabuleiro.*;
 import utilidade.Utilidade;
@@ -39,6 +41,18 @@ public class JogadorComputador extends Jogador {
 		return new Posicao(linha, coluna);
 	}
 	
-	public void pedirJogada(){}
+	public void pedirJogada(){
+		Scanner scanner = Utilidade.obterScanner();
+		Posicao posicao = new Posicao();
+		Tabuleiro tabuleiroAdversario = adversario.getTabuleiro();
+		
+		do {
+			System.out.println("> Informe a linha e coluna do ataque: ");
+			posicao.linha = scanner.nextInt();
+			posicao.coluna = scanner.nextInt();
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao));
+		
+		ultimaPosicaoJogada = posicao;
+	}
 	
 }

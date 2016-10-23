@@ -3,12 +3,17 @@ import tabuleiro.*;
 
 public abstract class Jogador {
 	protected Tabuleiro tabuleiro;
+	protected Posicao[][] ataquesRecebidos;
 	protected Jogador adversario;
+	protected Posicao ultimaPosicaoJogada;
 	protected boolean vencedor;
+	protected int pontos;
 	
 	public Jogador(Tabuleiro tabuleiro){
+		this.ataquesRecebidos = new Posicao[10][10];
 		this.tabuleiro = tabuleiro;
 		this.vencedor = false;
+		this.pontos = 0;
 	}
 	
 	public abstract void organizarEmbarcacoes();
@@ -26,7 +31,11 @@ public abstract class Jogador {
 	}
 	
 	public void atacarAdversario(){
-		// Falta implementar
+		
+	}
+	
+	public void receberAtaque(){
+		
 	}
 	
 	public boolean vencedor(){
@@ -35,6 +44,10 @@ public abstract class Jogador {
 	
 	public void setTabuleiro(Tabuleiro tabuleiro){
 		this.tabuleiro = tabuleiro;
+	}
+	
+	public Tabuleiro getTabuleiro(){
+		return tabuleiro;
 	}
 	
 	public void setAdversario(Jogador adversario){
