@@ -15,12 +15,10 @@ public class BatalhaNaval {
 		
 		do {
 			humano.mostrarTabuleiro();
-			humano.pedirJogada();
-			humano.atacarAdversario();
+			humano.realizarJogada();
 			
 			computador.mostrarTabuleiro();
-			computador.pedirJogada();
-			computador.atacarAdversario();
+			computador.realizarJogada();
 		} while(!humano.vencedor() && !computador.vencedor());
 		
 		if(humano.vencedor()){

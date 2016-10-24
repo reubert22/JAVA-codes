@@ -31,7 +31,7 @@ public final class JogadorHumano extends Jogador {
 	private void criarEmbarcacao(Fabrica fabrica, int quantidade) {
 		Scanner scanner = Utilidade.obterScanner();
 		
-		System.out.println("Voce vai escolher qual linha e coluna quer a embarcação acima.");
+		System.out.println("Voce vai escolher qual linha e coluna quer a embarcacao acima.");
 		for(int cont = 0; cont < quantidade; cont++){
 			Posicao posicao = new Posicao();
 			Embarcacao embarcacao = fabrica.criarEmbarcacao();
@@ -46,18 +46,45 @@ public final class JogadorHumano extends Jogador {
 		}
 	}
 	
-	public void pedirJogada(){
+	public void realizarJogada(){
 		Scanner scanner = Utilidade.obterScanner();
 		Posicao posicao = new Posicao();
 		Tabuleiro tabuleiroAdversario = adversario.getTabuleiro();
 		
+		// Pede posicao de jogada
 		do{
 			System.out.println("> Informe a linha e coluna: ");
 			posicao.linha  = scanner.nextInt();
 			posicao.coluna = scanner.nextInt();
-		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao));
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !posicaoJaFoiUtilizada(posicao));
 		
-		ultimaPosicaoJogada = posicao;
+		// Ataca tabuleiro do adversario e contabiliza pontos
+		if(tabuleiroAdversario.posicaoContemAgua(posicao)){
+			System.out.println("Voce nao acertou nenhuma embarcacao. :(");
+			return;
+		}
+		
+		if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'S'){
+			System.out.println("Voce acertou um Submarino.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'H'){
+			System.out.println("Voce acertou um Hidroaviao.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'C'){
+			System.out.println("Voce acertou um Cruzador.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'E'){
+			System.out.println("Voce acertou um Encouracado.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'P'){
+			System.out.println("Voce acertou um Porta-aviao.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		}
 	}
-	
+
 }

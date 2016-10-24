@@ -41,18 +41,41 @@ public class JogadorComputador extends Jogador {
 		return new Posicao(linha, coluna);
 	}
 	
-	public void pedirJogada(){
-		Scanner scanner = Utilidade.obterScanner();
+	public void realizarJogada(){
 		Posicao posicao = new Posicao();
 		Tabuleiro tabuleiroAdversario = adversario.getTabuleiro();
 		
 		do {
-			System.out.println("> Informe a linha e coluna do ataque: ");
-			posicao.linha = scanner.nextInt();
-			posicao.coluna = scanner.nextInt();
+			posicao = gerarPosicao();
 		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao));
 		
-		ultimaPosicaoJogada = posicao;
+
+		if(tabuleiroAdversario.posicaoContemAgua(posicao)){
+			System.out.println("O computador nao acertou nenhuma embarcacao sua. :)");
+			return;
+		}
+		
+		if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'S'){
+			System.out.println("O computador acertou um Submarino.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'H'){
+			System.out.println("O computador acertou um Hidroaviao.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'C'){
+			System.out.println("O computador acertou um Cruzador.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'E'){
+			System.out.println("O computador acertou um Encouracado.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'P'){
+			System.out.println("O computador acertou um Porta-aviao.");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			pontos++;
+		}
 	}
 	
 }

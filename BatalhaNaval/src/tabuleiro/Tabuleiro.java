@@ -7,9 +7,11 @@ public class Tabuleiro {
 	protected static final int NUM_COLUNAS = 10;
 	
 	protected char tabuleiro[][];
+	protected boolean[][] ataquesRecebidos;
 	
 	public Tabuleiro(){
 		this.tabuleiro = new char[10][10];
+		this.ataquesRecebidos = new boolean[10][10];
 		preencheTabuleiroComAgua();
 	}
 	
@@ -63,7 +65,7 @@ public class Tabuleiro {
 		}
 	}
 	
-	public boolean posicaoEstaDisponivel(Posicao posicao){
+	public boolean posicaoContemAgua(Posicao posicao){
 		return tabuleiro[posicao.linha][posicao.coluna] == SIMBOLO_AGUA;
 	}
 	
@@ -78,7 +80,15 @@ public class Tabuleiro {
 		return false;
 	}
 	
+	public void adicionarAtaqueRecebido(Posicao posicao){
+		ataquesRecebidos[posicao.linha][posicao.coluna] = true;
+	}
+	
 	public char[][] getTabuleiro(){
 		return tabuleiro;
+	}
+	
+	public boolean[][] getAtaquesRecebidos(){
+		return ataquesRecebidos;
 	}
 }

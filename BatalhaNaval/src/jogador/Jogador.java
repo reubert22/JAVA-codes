@@ -3,22 +3,18 @@ import tabuleiro.*;
 
 public abstract class Jogador {
 	protected Tabuleiro tabuleiro;
-	protected Posicao[][] ataquesRecebidos;
 	protected Jogador adversario;
 	protected Posicao ultimaPosicaoJogada;
-	protected boolean vencedor;
 	protected int pontos;
 	
 	public Jogador(Tabuleiro tabuleiro){
-		this.ataquesRecebidos = new Posicao[10][10];
 		this.tabuleiro = tabuleiro;
-		this.vencedor = false;
 		this.pontos = 0;
 	}
 	
 	public abstract void organizarEmbarcacoes();
 	
-	public abstract void pedirJogada();
+	public abstract void realizarJogada();
 	
 	public void mostrarTabuleiro(){
 		System.out.print("    ");
@@ -35,21 +31,12 @@ public abstract class Jogador {
 		}
 	}
 	
-	public void atacarAdversario(){
-		if(tabuleiro.getTabuleiro()[ultimaPosicaoJogada.linha][ultimaPosicaoJogada.coluna] != 'A'){
-			System.out.println("Você acertou parte de uma embarcação. ");
-			pontos++;
-			receberAtaque(ultimaPosicaoJogada);
-		}
-		System.out.println("Acertou água. ");
-	}
-	
-	public void receberAtaque(Posicao posicao){
-		tabuleiro.getTabuleiro()[posicao.linha][posicao.coluna] = 'x';
-	}
-	
 	public boolean vencedor(){
-		return vencedor;
+		return pontos >= 24; // alterar este 24 depois
+	}
+	
+	public boolean posicaoJaFoiUtilizada(Posicao posicao){
+		return tabuleiro.getAtaquesRecebidos()[posicao.linha][posicao.coluna] == false;
 	}
 	
 	public void setTabuleiro(Tabuleiro tabuleiro){
