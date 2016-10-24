@@ -5,7 +5,7 @@ import utilidade.Utilidade;
 import java.util.Scanner;
 import navio.*;
 
-public final class JogadorHumano extends Jogador {
+public class JogadorHumano extends Jogador {
 	
 	public JogadorHumano(Tabuleiro tabuleiro){
 		super(tabuleiro);
@@ -28,7 +28,7 @@ public final class JogadorHumano extends Jogador {
 		criarEmbarcacao(new FabricaPortaAvioes(), 1);
 	}
 	
-	private void criarEmbarcacao(Fabrica fabrica, int quantidade) {
+	protected void criarEmbarcacao(Fabrica fabrica, int quantidade) {
 		Scanner scanner = Utilidade.obterScanner();
 		
 		System.out.println("Voce vai escolher qual linha e coluna quer a embarcacao acima.");
@@ -61,6 +61,7 @@ public final class JogadorHumano extends Jogador {
 		// Ataca tabuleiro do adversario e contabiliza pontos
 		if(tabuleiroAdversario.posicaoContemAgua(posicao)){
 			System.out.println("Voce nao acertou nenhuma embarcacao. :(");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
 			return;
 		}
 		

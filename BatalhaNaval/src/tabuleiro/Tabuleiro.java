@@ -1,7 +1,7 @@
 package tabuleiro;
 import navio.*;
 
-public class Tabuleiro {
+public abstract class Tabuleiro {
 	protected static final char SIMBOLO_AGUA = 'A';
 	protected static final int NUM_LINHAS = 10;
 	protected static final int NUM_COLUNAS = 10;
@@ -14,6 +14,8 @@ public class Tabuleiro {
 		this.ataquesRecebidos = new boolean[10][10];
 		preencheTabuleiroComAgua();
 	}
+	
+	public abstract void mostrar();
 	
 	protected void preencheTabuleiroComAgua(){
 		for (int linha = 0; linha < NUM_LINHAS; linha++) {

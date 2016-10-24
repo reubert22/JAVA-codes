@@ -4,8 +4,8 @@ import tabuleiro.*;
 public class BatalhaNaval {
 	public static void main(String[] args){
 		
-		JogadorHumano humano = new JogadorHumano(new Tabuleiro());
-		JogadorComputador computador = new JogadorComputador(new Tabuleiro());
+		JogadorHumanoAutomatico humano = new JogadorHumanoAutomatico(new TabuleiroHumano());
+		JogadorComputador computador = new JogadorComputador(new TabuleiroComputador());
 		
 		humano.setAdversario(computador);
 		computador.setAdversario(humano);
@@ -14,10 +14,13 @@ public class BatalhaNaval {
 		computador.organizarEmbarcacoes();
 		
 		do {
+			System.out.println("Seu tabuleiro: ");
 			humano.mostrarTabuleiro();
-			humano.realizarJogada();
 			
+			System.out.println("Tabuleiro do computador: ");
 			computador.mostrarTabuleiro();
+			
+			humano.realizarJogada();
 			computador.realizarJogada();
 		} while(!humano.vencedor() && !computador.vencedor());
 		
