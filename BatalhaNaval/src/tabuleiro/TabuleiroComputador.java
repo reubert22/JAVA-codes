@@ -25,9 +25,9 @@ public final class TabuleiroComputador extends Tabuleiro {
 			
 			for(int coluna = 0; coluna < 10; coluna++){
 				if(!ataquesRecebidos[linha][coluna]){
-					System.out.print("      " + "X");
-				} else {
 					System.out.print("      " + tabuleiro[linha][coluna]);
+				} else {
+					System.out.print("      " + "X");
 				}
 			}
 			

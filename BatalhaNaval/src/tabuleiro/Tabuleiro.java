@@ -2,6 +2,8 @@ package tabuleiro;
 import navio.*;
 
 public abstract class Tabuleiro {
+	protected static final char SIMBOLO_ACERTO = 'T';
+	protected static final char SIMBOLO_ERRO = 'X';
 	protected static final char SIMBOLO_AGUA = 'A';
 	protected static final int NUM_LINHAS = 10;
 	protected static final int NUM_COLUNAS = 10;

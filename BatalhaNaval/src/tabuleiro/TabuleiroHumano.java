@@ -24,7 +24,11 @@ public class TabuleiroHumano extends Tabuleiro {
 			System.out.print("[" + linha + "]");
 			
 			for(int coluna = 0; coluna < 10; coluna++){
-				System.out.print("      " + tabuleiro[linha][coluna]);
+				if(!ataquesRecebidos[linha][coluna]){
+					System.out.print("      " + tabuleiro[linha][coluna]);
+				}else{
+					System.out.print("      " + "X");
+				}
 			}
 			
 			System.out.println();

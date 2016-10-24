@@ -1,7 +1,6 @@
 package jogador;
 
 import java.util.Random;
-import java.util.Scanner;
 
 import navio.*;
 import tabuleiro.*;
@@ -36,7 +35,7 @@ public class JogadorComputador extends Jogador {
 	
 	public Posicao gerarPosicao(){
 		Random random = Utilidade.obterRandom();
-		int linha = random.nextInt(10);
+		int linha  = random.nextInt(10);
 		int coluna = random.nextInt(10);
 		return new Posicao(linha, coluna);
 	}
@@ -47,11 +46,12 @@ public class JogadorComputador extends Jogador {
 		
 		do {
 			posicao = gerarPosicao();
-		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao));
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !posicaoJaFoiUtilizada(posicao));
 		
 
 		if(tabuleiroAdversario.posicaoContemAgua(posicao)){
 			System.out.println("O computador nao acertou nenhuma embarcacao sua. :)");
+			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
 			return;
 		}
 		

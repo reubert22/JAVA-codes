@@ -5,5 +5,5 @@
 package navio;
 
 public interface Fabrica {
-	public Embarcacao criarEmbarcacao();
+	Embarcacao criarEmbarcacao();
 }

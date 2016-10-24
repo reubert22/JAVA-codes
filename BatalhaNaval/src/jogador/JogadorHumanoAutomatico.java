@@ -16,7 +16,7 @@ public class JogadorHumanoAutomatico extends JogadorHumano {
 		super(tabuleiro);
 	}
 	
-	@Override
+	//@Override
 	public void organizarEmbarcacoes(){
 		// Cria submarinos
 		tabuleiro.adicionarEmbarcacao(new Submarino(), new Posicao(0, 5));
