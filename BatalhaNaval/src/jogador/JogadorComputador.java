@@ -56,6 +56,7 @@ public class JogadorComputador extends Jogador {
 
 		if(tabuleiroAdversario.posicaoContemAgua(posicao)){
 			System.out.println("O computador nao acertou nenhuma embarcacao sua. :)");
+			tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] = 'X';
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
 			return;
 		}

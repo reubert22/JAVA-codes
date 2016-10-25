@@ -24,9 +24,9 @@ public class BatalhaNaval {
 			computador.mostrarPontos();
 			computador.mostrarTabuleiro();
 			
+			ferr.limparTela();
 			humano.realizarJogada();
 			computador.realizarJogada();
-			ferr.limparTela();
 		} while(!humano.vencedor() && !computador.vencedor());
 		
 		if(humano.vencedor()){
