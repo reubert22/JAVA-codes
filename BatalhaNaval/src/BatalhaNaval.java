@@ -1,11 +1,13 @@
 import jogador.*;
 import tabuleiro.*;
+import utilidade.Ferramentas;
 
 public class BatalhaNaval {
 	public static void main(String[] args){
 		
 		JogadorHumanoAutomatico humano = new JogadorHumanoAutomatico(new TabuleiroHumano());
 		JogadorComputador computador = new JogadorComputador(new TabuleiroComputador());
+		Ferramentas ferr = new Ferramentas();
 		
 		humano.setAdversario(computador);
 		computador.setAdversario(humano);
@@ -15,13 +17,16 @@ public class BatalhaNaval {
 		
 		do {
 			System.out.println("Seu tabuleiro: ");
+			humano.mostrarPontos();
 			humano.mostrarTabuleiro();
 			
 			System.out.println("Tabuleiro do computador: ");
+			computador.mostrarPontos();
 			computador.mostrarTabuleiro();
 			
 			humano.realizarJogada();
 			computador.realizarJogada();
+			ferr.limparTela();
 		} while(!humano.vencedor() && !computador.vencedor());
 		
 		if(humano.vencedor()){

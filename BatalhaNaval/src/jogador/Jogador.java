@@ -16,12 +16,14 @@ public abstract class Jogador {
 	
 	public abstract void realizarJogada();
 	
+	public abstract void mostrarPontos();
+	
 	public void mostrarTabuleiro(){
 		tabuleiro.mostrar();
 	}
 	
 	public boolean vencedor(){
-		return pontos >= 24; // alterar este 24 depois
+		return pontos >= 22;
 	}
 	
 	public void setTabuleiro(Tabuleiro tabuleiro){

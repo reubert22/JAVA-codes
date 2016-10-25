@@ -11,6 +11,10 @@ public class JogadorComputador extends Jogador {
 	public JogadorComputador(Tabuleiro tabuleiro){
 		super(tabuleiro);
 	}
+	
+	public void mostrarPontos(){
+		System.out.println("Pontuação Computador: "+pontos);
+	}
 
 	public void organizarEmbarcacoes(){
 		criarEmbarcacao(new FabricaSubmarino(), 3);
@@ -37,7 +41,7 @@ public class JogadorComputador extends Jogador {
 		Random random = Utilidade.obterRandom();
 		int linha  = random.nextInt(10);
 		int coluna = random.nextInt(10);
-		System.out.println("" + linha + " | " +  coluna);
+		//System.out.println("" + linha + " | " +  coluna);
 		return new Posicao(linha, coluna);
 	}
 	
@@ -59,27 +63,22 @@ public class JogadorComputador extends Jogador {
 		if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'S'){
 			System.out.println("O computador acertou um Submarino.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
-			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'H'){
 			System.out.println("O computador acertou um Hidroaviao.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
-			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'C'){
 			System.out.println("O computador acertou um Cruzador.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
-			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'E'){
 			System.out.println("O computador acertou um Encouracado.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
-			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'P'){
 			System.out.println("O computador acertou um Porta-aviao.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
-			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		}
 	}

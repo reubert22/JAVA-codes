@@ -107,10 +107,6 @@ public abstract class Tabuleiro {
 		return ataquesRecebidos[posicao.linha][posicao.coluna] == true;
 	}
 	
-	public void adicionarAcertoEmbarcacao(Posicao posicao){
-		tabuleiro[posicao.linha][posicao.coluna] = SIMBOLO_ACERTO;
-	}
-	
 	public void adicionarAtaqueRecebido(Posicao posicao){
 		ataquesRecebidos[posicao.linha][posicao.coluna] = true;
 	}
