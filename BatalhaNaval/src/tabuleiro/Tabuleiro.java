@@ -45,9 +45,13 @@ public abstract class Tabuleiro {
 	}
 	
 	public boolean posicaoEstaDentroDoLimite(Posicao posicao){
-		int linha = posicao.linha;
+		int linha  = posicao.linha;
 		int coluna = posicao.coluna;
-		return linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10;
+		if(linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10){
+			return true;
+		}
+		System.out.println("Posição excedeu o tamanho do tabuleiro.\n");
+		return false;
 	}
 	
 	public boolean espacoEsquerdoEstaVazio(Posicao posicao){
@@ -82,6 +86,10 @@ public abstract class Tabuleiro {
 			}
 		}
 		return false;
+	}
+	
+	public void adicionarAcertoEmbarcacao(Posicao posicao){
+		tabuleiro[posicao.linha][posicao.coluna] = SIMBOLO_ACERTO;
 	}
 	
 	public void adicionarAtaqueRecebido(Posicao posicao){

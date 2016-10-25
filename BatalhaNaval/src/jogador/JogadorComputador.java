@@ -58,22 +58,27 @@ public class JogadorComputador extends Jogador {
 		if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'S'){
 			System.out.println("O computador acertou um Submarino.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'H'){
 			System.out.println("O computador acertou um Hidroaviao.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'C'){
 			System.out.println("O computador acertou um Cruzador.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'E'){
 			System.out.println("O computador acertou um Encouracado.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'P'){
 			System.out.println("O computador acertou um Porta-aviao.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		}
 	}

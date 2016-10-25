@@ -68,22 +68,27 @@ public class JogadorHumano extends Jogador {
 		if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'S'){
 			System.out.println("Voce acertou um Submarino.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'H'){
 			System.out.println("Voce acertou um Hidroaviao.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'C'){
 			System.out.println("Voce acertou um Cruzador.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'E'){
 			System.out.println("Voce acertou um Encouracado.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		} else if(tabuleiroAdversario.getTabuleiro()[posicao.linha][posicao.coluna] == 'P'){
 			System.out.println("Voce acertou um Porta-aviao.");
 			tabuleiroAdversario.adicionarAtaqueRecebido(posicao);
+			tabuleiroAdversario.adicionarAcertoEmbarcacao(posicao);
 			pontos++;
 		}
 	}
