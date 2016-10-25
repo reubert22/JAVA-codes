@@ -37,6 +37,7 @@ public class JogadorComputador extends Jogador {
 		Random random = Utilidade.obterRandom();
 		int linha  = random.nextInt(10);
 		int coluna = random.nextInt(10);
+		System.out.println("" + linha + " | " +  coluna);
 		return new Posicao(linha, coluna);
 	}
 	
@@ -46,7 +47,7 @@ public class JogadorComputador extends Jogador {
 		
 		do {
 			posicao = gerarPosicao();
-		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !posicaoJaFoiUtilizada(posicao));
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !tabuleiroAdversario.posicaoJaFoiUtilizada(posicao));
 		
 
 		if(tabuleiroAdversario.posicaoContemAgua(posicao)){

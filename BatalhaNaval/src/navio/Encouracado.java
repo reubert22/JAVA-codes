@@ -3,6 +3,6 @@ package navio;
 public class Encouracado extends Embarcacao {
 	
 	public Encouracado(){
-		super('E');
+		super('E', 4);
 	}
 }

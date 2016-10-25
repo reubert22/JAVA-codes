@@ -24,10 +24,6 @@ public abstract class Jogador {
 		return pontos >= 24; // alterar este 24 depois
 	}
 	
-	public boolean posicaoJaFoiUtilizada(Posicao posicao){
-		return tabuleiro.getAtaquesRecebidos()[posicao.linha][posicao.coluna] == false;
-	}
-	
 	public void setTabuleiro(Tabuleiro tabuleiro){
 		this.tabuleiro = tabuleiro;
 	}

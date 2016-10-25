@@ -55,6 +55,7 @@ public abstract class Tabuleiro {
 	}
 	
 	public boolean espacoEsquerdoEstaVazio(Posicao posicao){
+		
 		if(posicao.coluna == 0){
 			return true;
 		}
@@ -62,7 +63,19 @@ public abstract class Tabuleiro {
 	}
 	
 	public boolean espacoDireitoEstaVazio(Embarcacao embarcacao, Posicao posicao){
-		return tabuleiro[posicao.linha][posicao.coluna + embarcacao.getTamanho()] == SIMBOLO_AGUA;
+		int linha = posicao.linha;
+		int coluna = posicao.coluna;
+		int tamanho = embarcacao.getTamanho();
+		
+		if(coluna == 9){
+			return true;
+		}
+		
+		if(coluna + tamanho > 9){
+			return false;
+		}
+		
+		return tabuleiro[linha][coluna + tamanho] == SIMBOLO_AGUA;
 	}
 	
 	public void adicionarEmbarcacao(Embarcacao embarcacao, Posicao posicao){
@@ -86,6 +99,10 @@ public abstract class Tabuleiro {
 			}
 		}
 		return false;
+	}
+	
+	public boolean posicaoJaFoiUtilizada(Posicao posicao){
+		return ataquesRecebidos[posicao.linha][posicao.coluna] == false;
 	}
 	
 	public void adicionarAcertoEmbarcacao(Posicao posicao){

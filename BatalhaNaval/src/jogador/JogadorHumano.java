@@ -56,7 +56,7 @@ public class JogadorHumano extends Jogador {
 			System.out.println("> Informe a linha e coluna: ");
 			posicao.linha  = scanner.nextInt();
 			posicao.coluna = scanner.nextInt();
-		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !posicaoJaFoiUtilizada(posicao));
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !tabuleiroAdversario.posicaoJaFoiUtilizada(posicao));
 		
 		// Ataca tabuleiro do adversario e contabiliza pontos
 		if(tabuleiroAdversario.posicaoContemAgua(posicao)){
