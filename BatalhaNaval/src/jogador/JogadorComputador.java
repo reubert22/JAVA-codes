@@ -47,7 +47,7 @@ public class JogadorComputador extends Jogador {
 		
 		do {
 			posicao = gerarPosicao();
-		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && !tabuleiroAdversario.posicaoJaFoiUtilizada(posicao));
+		} while(!tabuleiroAdversario.posicaoEstaDentroDoLimite(posicao) && tabuleiroAdversario.posicaoJaFoiUtilizada(posicao));
 		
 
 		if(tabuleiroAdversario.posicaoContemAgua(posicao)){

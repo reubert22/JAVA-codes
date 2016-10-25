@@ -35,7 +35,7 @@ public class JogadorHumanoAutomatico extends JogadorHumano {
 		tabuleiro.adicionarEmbarcacao(new Encouracado(), new Posicao(8, 0));
 		
 		// Cria porta-aviao
-		tabuleiro.adicionarEmbarcacao(new PortaAvioes(), new Posicao(9, 5));
+		tabuleiro.adicionarEmbarcacao(new PortaAvioes(), new Posicao(9, 4));
 	}
 	
 }

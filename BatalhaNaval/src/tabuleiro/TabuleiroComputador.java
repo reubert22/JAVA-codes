@@ -24,10 +24,10 @@ public final class TabuleiroComputador extends Tabuleiro {
 			System.out.print("[" + linha + "]");
 			
 			for(int coluna = 0; coluna < 10; coluna++){
-				if(!ataquesRecebidos[linha][coluna]){
+				if(ataquesRecebidos[linha][coluna]){
 					System.out.print("      " + tabuleiro[linha][coluna]);
 				}else{
-					System.out.print("      " + "X");
+					System.out.print("      " + SIMBOLO_AGUA);
 				}
 			}
 			

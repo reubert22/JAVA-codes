@@ -27,7 +27,7 @@ public class TabuleiroHumano extends Tabuleiro {
 				if(!ataquesRecebidos[linha][coluna]){
 					System.out.print("      " + tabuleiro[linha][coluna]);
 				}else{
-					System.out.print("      " + "X");
+					System.out.print("      " + SIMBOLO_AGUA);
 				}
 			}
 			

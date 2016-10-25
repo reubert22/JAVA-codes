@@ -27,31 +27,20 @@ public abstract class Tabuleiro {
 		}
 	}
 	
-	public boolean podeInserirEmbarcacao(Embarcacao embarcacao, Posicao posicao){
-		return 	posicaoEstaDentroDoLimite(posicao) && 
-				cabeEmbarcacao(embarcacao, posicao) && 
-				espacoEsquerdoEstaVazio(posicao) && 
-				espacoDireitoEstaVazio(embarcacao, posicao);
-	}
-	
 	public boolean cabeEmbarcacao(Embarcacao embarcacao, Posicao posicao){
-		for(int coluna = posicao.coluna; coluna < (posicao.coluna + embarcacao.getTamanho()); coluna++){
+		int tamanho = embarcacao.getTamanho();
+		
+		if(posicao.coluna + tamanho > 10){
+			return false;
+		}
+		
+		for(int coluna = posicao.coluna; coluna < (posicao.coluna + tamanho); coluna++){
 			if(tabuleiro[posicao.linha][posicao.coluna] != SIMBOLO_AGUA){
 				return false;
 			}
 		}
 		
 		return true;
-	}
-	
-	public boolean posicaoEstaDentroDoLimite(Posicao posicao){
-		int linha  = posicao.linha;
-		int coluna = posicao.coluna;
-		if(linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10){
-			return true;
-		}
-		System.out.println("Posição excedeu o tamanho do tabuleiro.\n");
-		return false;
 	}
 	
 	public boolean espacoEsquerdoEstaVazio(Posicao posicao){
@@ -81,9 +70,22 @@ public abstract class Tabuleiro {
 	public void adicionarEmbarcacao(Embarcacao embarcacao, Posicao posicao){
 		if(podeInserirEmbarcacao(embarcacao, posicao)){
 			for(int coluna = posicao.coluna; coluna < (posicao.coluna + embarcacao.getTamanho()); coluna++){
-				tabuleiro[posicao.linha][posicao.coluna] = embarcacao.getSimbolo();
+				tabuleiro[posicao.linha][coluna] = embarcacao.getSimbolo();
 			}
 		}
+	}
+	
+	public boolean podeInserirEmbarcacao(Embarcacao embarcacao, Posicao posicao){
+		return 	posicaoEstaDentroDoLimite(posicao) && 
+				cabeEmbarcacao(embarcacao, posicao) && 
+				espacoEsquerdoEstaVazio(posicao) && 
+				espacoDireitoEstaVazio(embarcacao, posicao);
+	}
+	
+	public boolean posicaoEstaDentroDoLimite(Posicao posicao){
+		int linha  = posicao.linha;
+		int coluna = posicao.coluna;
+		return linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10;
 	}
 	
 	public boolean posicaoContemAgua(Posicao posicao){
@@ -102,7 +104,7 @@ public abstract class Tabuleiro {
 	}
 	
 	public boolean posicaoJaFoiUtilizada(Posicao posicao){
-		return ataquesRecebidos[posicao.linha][posicao.coluna] == false;
+		return ataquesRecebidos[posicao.linha][posicao.coluna] == true;
 	}
 	
 	public void adicionarAcertoEmbarcacao(Posicao posicao){
