@@ -1,2 +1,2 @@
-# codigos-JAVA
-Alguns códigos na linguagem C, proposto em exercicios na Universidade.
+# JAVA-Codes
+Some JAVA codes of University.
